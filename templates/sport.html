@@ -1,0 +1,35 @@
+{%extends "layout.html"%}
+{%block content%}
+<head>
+    <link rel="stylesheet" href="/static/style/sport_home.css">
+</head>
+<body>
+    <div class="grid">
+        <div class="grid-item">
+            <video class="video" loop muted loading="lazy">
+                <source src="/static/videos/narty_home.mp4" type="video/mp4">
+            </video>
+            <a href="sport/narty"><div class="centered-text">Narty</div></a>
+        </div>
+        <div class="grid-item">
+            <video class="video" loop muted loading="lazy">
+                <source src="/static/videos/box_home.mp4" type="video/mp4">
+            </video>
+            <a href="sport/boks"><div class="centered-text">Boks</div></a>
+        </div>
+        <div class="grid-item">
+            <video class="video" loop muted loading="lazy">
+                <source src="/static/videos/siatka_home.mp4" type="video/mp4">
+            </video>
+            <a href="sport/siata"><div class="centered-text">Siatka</div></a>
+        </div>
+        <div class="grid-item">
+            <video class="video" loop muted loading="lazy">
+                <source src="/static/videos/zagle_home.mp4" type="video/mp4">
+            </video>
+            <a href="sport/zagle"><div class="centered-text">Żagle</div></a>
+        </div>
+    </div>
+    <script src="/static/scripts/sport.js"></script>
+</body>
+{%endblock%}

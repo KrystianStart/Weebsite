@@ -1,0 +1,66 @@
+{%extends "layout.html"%}
+{%block content%}
+<head>
+	<link rel="stylesheet" href="/static/style/homestyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="background-image"></div>
+			<div class="content">
+				<p class="text" id="typed-text">
+					Witam, cieszę się że trafiłeś na tą stronę,
+					jest to mój pierwszy web projekt. Ma on na 
+					celu zbudowania działającej strony oraz 
+					prezentację mojej osoby. Zachęcam po obejrzeniu
+					strony do ocenienia jej.
+				</p>
+			</div>
+		</div>
+
+		<form id="rating-form">
+			<div class="rating-box">
+				<a class="text-rate">
+					JAK OCENIASZ STRONĘ ?
+				</a>
+				<div class="stars">
+					<input type="radio" name="rating" value="1" id="rate1">
+					<label for="rate1" class="fa-solid fa-star"></label>
+					<input type="radio" name="rating" value="2" id="rate2">
+					<label for="rate2" class="fa-solid fa-star"></label>
+					<input type="radio" name="rating" value="3" id="rate3">
+					<label for="rate3" class="fa-solid fa-star"></label>
+					<input type="radio" name="rating" value="4" id="rate4">
+					<label for="rate4" class="fa-solid fa-star"></label>
+					<input type="radio" name="rating" value="5" id="rate5">
+					<label for="rate5" class="fa-solid fa-star"></label>
+				</div>
+				<button class="button" type="button" onclick="submitRating();">Oceń</button>
+			</div>
+		</form>
+		<div id="thank-you" style="display: none;"><label class="koniec"> Dziękuję za ocenę!</label></div>
+	</div>
+	
+	<script src="/static/scripts/writting.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		function submitRating() {
+			var rating = $('input[name="rating"]:checked').val();
+			if (rating) {
+				$.ajax({
+					type: "POST",
+					url: "{{ url_for('home') }}",
+					data: { rating: rating },
+					success: function (response) {
+						console.log("Ocena została przesłana.");
+						// Ukryj formularz i pokaż komunikat
+						$('#rating-form').hide();
+						$('#thank-you').show();
+					}
+				});
+			}
+		}
+	</script>
+</body>
+{%endblock%}

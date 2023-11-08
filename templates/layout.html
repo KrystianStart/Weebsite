@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatibile" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>KrystianWeb</title>
+		<link rel="stylesheet" href="/static/style/loading.css">
+		<link rel="stylesheet" href="/static/style/navabar.css">
+		<link rel="icon" type="image/png" href="/static/image/icon_home.png">
+  </head>
+  <body>
+    <header>
+			<div class="loader_bg">
+				<div class="loader"></div>
+			</div>
+
+      <div class="logo">KSTRYJ</div>
+			<input type="checkbox" id="nav_check" hidden>
+			<nav>
+				<ul>
+					<li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+					<li><a href="{{ url_for('about') }}" class="active">About</a></li>
+					<li><a href="{{ url_for('sport') }}" class="active">Sport</a></li>
+					<li><a href="{{ url_for('home') }}" class="active">Projects</a></li>
+				</ul>
+			</nav>
+			<label for="nav_check" class="hamburger">
+				<div></div>
+				<div></div>
+				<div></div>
+			</label>	
+    </header>
+
+		
+
+    <div class="page">
+        {%block content%}
+        {%endblock%}
+    </div> 
+
+		<footer>
+			<div class="footer-content">
+					<label class="napis">&copy; 2023 Krystian Stryjakiewicz. Wszelkie prawa zastrzeżone.</label>
+			</div>
+
+			<div class="icons">
+				<label class="contact">Contact: </label>
+				<a href="https://www.linkedin.com/in/krystian-stryjakiewicz-41a7a5267/" target="_blank" class="linkedin">
+						<i class="fa-brands fa-linkedin"></i>
+				</a>
+				<a href="https://github.com/KrystianStart" target="_blank" class="github">
+					<i class="fa-brands fa-github"></i>
+			</div>
+	</footer>
+
+  </body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		setTimeout(function(){
+			$('.loader_bg').fadeToggle();
+		}, 700);
+	</script>
+	<script src="https://kit.fontawesome.com/27162e8280.js" crossorigin="anonymous"></script>
+</html> 
